@@ -1,0 +1,453 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+/* End basic CSS override */
+* {
+  scrollbar-width: 0;
+}
+
+*::-webkit-scrollbar {
+  background-color: #fff;
+  width: 12px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 99px;
+  background-color: #6bc7ed;
+  border: 1px solid #6bc7ed;
+}
+.rtf h1,
+.rtf h2,
+.rtf h3,
+.rtf h4,
+.rtf h5,
+.rtf h6 {
+  font-weight: 700;
+}
+.rtf h1 {
+  font-size: 1.5rem;
+  line-height: 1.125;
+}
+.rtf h2 {
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+.rtf h3 {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.rtf > * + * {
+  margin-top: 1em;
+}
+.rtf > * + :is(h1, h2, h3) {
+  margin-top: 2em;
+}
+.rtf > :is(h1, h2, h3) + * {
+  margin-top: 0.75em;
+}
+.rtf ul,
+.rtf ol {
+  margin-left: 20px;
+  list-style-position: inside;
+}
+.rtf ol {
+  list-style: numeric;
+}
+.rtf ul {
+  list-style: disc;
+}
+
+.modal {
+  position: absolute;
+  top: 10px;
+  left: 8vw;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*   background-color: transparent; */
+  width: 350px;
+  display: none;
+}
+
+.modal-container {
+  max-height: 96vh;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f0dcff;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.25);
+  top: 0;
+  position: absolute;
+}
+
+@media (max-width: 600px) {
+  .modal-container {
+    width: 90%;
+  }
+}
+
+.modal-container-header {
+  padding: 16px 32px;
+  padding-bottom: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-container-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1;
+  font-weight: 700;
+  font-size: 15.125px;
+}
+.modal-container-title svg {
+  width: 32px;
+  height: 32px;
+  color: #750550;
+}
+
+.modal-container-body {
+  padding: 2px;
+  overflow-y: auto;
+  display: block;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  opacity: 1;
+}
+
+.modal-container-body .rtf {
+  padding: 5px 0 !important;
+}
+
+.button {
+  padding: 12px 20px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+.button.is-ghost:hover,
+.button.is-ghost:focus {
+  background-color: #dfdad7;
+}
+.button.is-primary {
+  background-color: #750550;
+  color: #fff;
+}
+.button.is-primary:hover,
+.button.is-primary:focus {
+  background-color: #4a0433;
+}
+
+.icon-button {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.15s ease;
+}
+.icon-button svg {
+  width: 24px;
+  height: 24px;
+}
+.icon-button:hover,
+.icon-button:focus {
+  background-color: #dfdad7;
+}
+
+.map-modal-active {
+  display: block;
+  opacity: 1;
+}
+
+#map-canvas {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+#directions-panel {
+  display: block;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  max-width: 400px;
+  height: 97%;
+  color: black;
+  /*transition: opacity 0.3s ease, visibility 0.3s ease;*/
+}
+
+#directions-panel p {
+  margin: 0;
+  padding: 5px 0;
+  color: black;
+}
+#directions-panel span {
+  color: black;
+}
+
+.adp,
+.adp table,
+.adp button {
+  font-family: Roboto, Arial, sans-serif;
+  font-weight: 300;
+  color: #f9eded;
+  font-size: 14px;
+}
+.adp-step,
+.adp-substep {
+  border-top: 1px solid #d9d9d9;
+  margin: 0;
+  padding: 0.3em 3px 0.3em 3px;
+  vertical-align: top;
+  color: black;
+}
+.adp-step,
+.adp-text {
+  width: 100%;
+  color: black;
+  text-align: center;
+}
+
+.adp-placemark {
+  border-radius: 25px;
+  background: #ffd9d9;
+  border: none;
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  font-size: 17px;
+}
+
+.mapshit .col-md-11 {
+  padding: 0;
+}
+.mapshit .col-md-1 {
+  padding: 0;
+}
+
+.col-md-8,
+.col-md-11,
+.col-md-4,
+.col-md-1 {
+  transition: all 0.5s;
+}
+/* //innerrr */
+
+:root {
+  --c-text-primary: #eee;
+  --c-text-secondary: #d3d5db;
+  --c-border-primary: #454545;
+  --c-bg-primary: #323339;
+  --c-bg-secondary: #222128;
+  --c-bg-button: #494a50;
+  --slider-shadow: inset 0 1px 1px #767676;
+}
+:root.dark-theme {
+  --c-text-primary: #eee;
+  --c-text-secondary: #d3d5db;
+  --c-border-primary: #454545;
+  --c-bg-primary: #323339;
+  --c-bg-secondary: #222128;
+  --c-bg-button: #494a50;
+  --slider-shadow: inset 0 1px 1px #767676;
+}
+::root.black-theme {
+  --c-text-primary: #edeeef;
+  --c-text-secondary: #d4d7e1;
+  --c-border-primary: #323232;
+  --c-bg-primary: #1b1d23;
+  --c-bg-secondary: #000001;
+  --c-bg-button: #343844;
+  --slider-shadow: inset 0 1px 1px #555;
+}
+
+#maprealsection {
+  z-index: 4;
+  background-color: transparent;
+  position: relative;
+  padding: 0;
+}
+.mapshit {
+  height: 100vh;
+  background-color: #000000;
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  overflow: hidden;
+  box-shadow: 0px 9px 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Select the element with the ID 'mapimagefake' and apply the following styles */
+#mapimagefake {
+  padding-right: 0;
+  background-color: #ebecee;
+  background-image: url(../assets/images/bg2.png),
+    linear-gradient(205deg, #434343 0%, #15161d 76%) !important;
+  overflow: hidden;
+}
+
+.menumap {
+  width: 100%;
+  height: 100vh;
+  max-width: 100%;
+  /*background-color: var(--c-bg-primary);*/
+  background-color: transparent;
+  transition: background-color 0.15s ease;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.05), 0 -4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.menumap-header {
+  padding: 1rem;
+}
+
+.menumap-header-title {
+  font-size: 0.875rem;
+  color: var(--c-text-secondary);
+  margin-bottom: 0.375rem;
+  font-weight: 500;
+  text-align: center;
+  padding-bottom: 2px;
+}
+
+.theme-switcher {
+  background-color: var(--c-bg-secondary);
+  border-radius: 10px;
+  display: flex;
+  padding: 0 3px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.theme-switcher .slider {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  width: calc((100% - 6px) / 3);
+  top: 3px;
+  transform: translatex(-110%);
+  bottom: 3px;
+  border-radius: 6px;
+  transition: 0.15s ease, transform 0.25s ease-out;
+  background-color: var(--c-bg-button);
+  box-shadow: var(--slider-shadow);
+}
+.theme-switcher input {
+  display: none;
+}
+.theme-switcher input:nth-of-type(1):checked ~ .slider {
+  transform: translateX(0);
+}
+.theme-switcher input:nth-of-type(2):checked ~ .slider {
+  transform: translateX(100%);
+}
+.theme-switcher input:nth-of-type(3):checked ~ .slider {
+  transform: translateX(200%);
+}
+.theme-switcher label {
+  position: relative;
+  z-index: 2;
+  width: calc(100% / 3);
+  color: var(--c-text-secondary);
+}
+.theme-switcher label span {
+  padding: 8px 0;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+.theme-switcher label svg {
+  display: inline-block;
+  margin-right: 0.5rem;
+  width: 20px;
+}
+
+.menumap-body {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  border-top: 1px solid var(--c-border-primary);
+  transition: border-color 0.15s ease;
+}
+.menumap-body a {
+  text-decoration: none;
+  color: white !important;
+  display: flex;
+  align-items: center;
+  padding: 0.625rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: 0.15s ease;
+}
+.menumap-body a svg {
+  margin-right: 1rem;
+  color: var(--c-text-secondary);
+  transition: color 0.15s ease;
+  fill: transparent;
+}
+.menumap-body a:hover {
+  background-color: var(--c-bg-secondary);
+}
+
+.maphideall {
+  display: none;
+  transition: all 0.5 ease-in-out;
+}
+.maplinksicon {
+  scale: 1.5;
+  transition: all 0.5 ease-in-out;
+}
+
+.maplinksmain {
+  margin: auto;
+  transition: all 0.5 ease-in-out;
+  margin-bottom: 80px;
+}
+
+/* //remove if necessary */
+
+@media (max-width: 767px) {
+  .row {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100vw;
+  }
+  #mapimagefake {
+    width: 19% !important;
+  }
+}
+/* #mapimagefake {
+  width: 14%;
+} */
